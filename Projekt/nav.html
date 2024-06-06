@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="kategorija.php?category=Rekreativni dronovi">Rekreativni dronovi</a></li>
+            <li><a href="kategorija.php?category=Komercijalni dronovi">Komercijalni dronovi</a></li>
+            <li><a href="kategorija.php?category=Ostalo">Ostalo</a></li>
+            <li><a href="login.php?url=administracija.php">Administracija</a></li>
+            <li><a href="login.php?url=unosForma.php">Unos</a></li>
+            <li><a href="#" onclick="confirmLogout()">Odjava</a></li>
+        </ul>
+    </nav>
+
+    <script type="text/javascript">
+        
+        function confirmLogout(){
+                        if(confirm("Jeste li sigurni da se želite odjaviti?")) {
+                window.location.href = 'logout.php';
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

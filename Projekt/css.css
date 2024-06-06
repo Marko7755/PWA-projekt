@@ -1,0 +1,927 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(6, 140, 243);
+    font-size: larger;
+    transition: color 0.3s, opacity 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #f2f1f8;
+    opacity: 0.8;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.logoContainer img {
+    width: 130px;
+    height: auto
+}
+
+
+header {
+    padding-bottom: 10px;
+    background-color: lightblue;
+}
+
+.newArticleForm {
+    width: 80%;
+    max-width: 600px;
+    border-color: blue;
+    border-style: dotted;
+    border-radius: 60px;
+    margin: 20px auto 20px auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 30px 0;
+    background-color: skyblue;
+    box-sizing: border-box;
+}
+
+
+.newArticleForm .btnContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.newArticleForm form .error {
+    color: red;
+    width: 230px;
+}
+
+.newArticleForm form label.error {
+    display: block;
+}
+
+.newArticleForm form .error-border {
+    border-color: red;
+}
+
+
+footer {
+    background-color: lightblue;
+    padding: 20px;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+footer .footerText {
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(6, 140, 243);
+}
+
+.articlePrint {
+    /* border: 1px solid rgb(32, 102, 243); */
+    width: 80%;
+    margin: 0 auto;
+    /* margin-top: 30px; */
+    /* word-wrap: break-word; */
+    background-color: rgb(165, 239, 235);
+}
+
+
+.articleHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    /* border: 1px solid lawngreen; */
+}
+
+.category {
+    font-weight: bold;
+    font-size: large;
+}
+
+.title {
+    text-align: left;
+    padding: 0;
+}
+
+
+.pictureContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.pictureContainer img {
+    width: 600px;
+    height: auto;
+}
+
+.articleContent {
+    margin-bottom: 50px;
+    line-height: 1.7;
+    color: rgb(13, 82, 128);
+    text-align: center;
+}
+
+
+.articles, .categoryArticles {
+    width: 95%;
+    border: 1px solid rgb(47, 129, 236);
+    margin: 30px auto 0px auto;
+    margin-bottom: 30px;
+}
+
+.articles h1, .categoryArticles h1 {
+    margin: 0;
+    padding: 10px 10px ;
+    text-align: center;
+}
+
+.hobbyDroneContainer, .businessDroneContainer, .otherNewsContainer, .newsCategoryContainer {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.hobbyDronesHeader, .businessDroneHeader, .otherNewsHeader, .newsCategoryHeader {
+    width: 100%;
+    /* background-color: rgb(0, 123, 255); */
+    padding-bottom: 20px;
+}
+
+.hobbyDronesHeader a, .businessDroneHeader a, .otherNewsHeader a {
+    text-decoration: none;
+}
+
+
+.hobbyDronesHeader h1, .businessDroneHeader h1, .otherNewsHeader h1, .newsCategoryHeader h1 {
+    color: white;
+    font-size: xx-large;
+    padding: 10px 0 0 0;
+}
+
+.hobbyDroneRow, .businessDroneRow, .otherNewsRow, .newsCategoryRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: lightgray;
+    /* justify-content:flex-start; */ /* PRVI NACIN ali onda artikli odu dole kod resizeanja */
+    justify-content: space-evenly;
+}
+
+
+.hobbyDroneArticle, .businessDroneArticle, .otherNewsArticle, .newsCategoryArticle {
+    /* width: 31.5%; */
+    flex: 0 1 31.5%; /* isto kao i width */
+    border: 2px solid black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* margin: 15px 10px 15px 15px; *//*  PRVI NACIN */
+    margin: 15px 0px 15px 0px;
+    /* border: 1px solid limegreen; */
+}
+
+.invisibleArticle {
+    width: 31.5%;
+    border: 2px solid black;
+    margin: 15px 0px 15px 0px;
+    visibility:hidden;
+}
+
+
+.hobbyDroneArticle:hover, .businessDroneArticle:hover, .otherNewsArticle:hover, .newsCategoryArticle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.hobbyDroneArticle .image, .businessDroneArticle .image, .otherNewsArticle .image, .newsCategoryArticle .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.hobbyDroneArticle .image img, .businessDroneArticle .image img, .otherNewsArticle .image img, .newsCategoryArticle .image img {
+    width: 95%;
+    height: 300px;
+    /* object-fit: contain; */
+}
+
+.hobbyDroneArticle .image a, .businessDroneArticle .image a, .otherNewsArticle .image a, .newsCategoryArticle .image a {
+    text-align: center; /* Center the content inside the anchor tag */
+    width: 85%; /* Set the width of the anchor tag to match the image width */;
+}
+
+.hobbyDroneArticle .title, .businessDroneArticle .title, .otherNewsArticle .title, .newsCategoryArticle .title {
+    margin: 10px 50px 0 50px; 
+    text-align: center;
+}
+
+.hobbyDroneArticle .title a, .businessDroneArticle .title a, .otherNewsArticle .title a, .newsCategoryArticle .title a {
+    text-decoration: none;
+    /* color: rgb(0, 123, 255); */
+}
+
+.hobbyDroneArticle .summaryText, .businessDroneArticle .summaryText, .otherNewsArticle .summaryText, .newsCategoryArticle .summaryText {
+    margin: 10px 60px 0 60px; 
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: large;
+}
+
+.hobbyDroneArticle .summaryText a, .businessDroneArticle .summaryText a, .otherNewsArticle .summaryText a, .newsCategoryArticle .summaryText a {
+    text-decoration: none;
+    /* color: rgb(49, 88, 246); */
+}
+
+hr {
+    display: none;
+}
+
+.hobbyDronesHeader.color, .newsCategoryHeader.hobbyDronesColor{
+    background-color: rgb(0, 123, 255);
+}
+
+.businessDroneHeader.color, .newsCategoryHeader.businessDronesColor {
+    background-color: rgb(55, 187, 105);
+}
+
+.otherNewsHeader.color, .newsCategoryHeader.otherNewsColor {
+    background-color: rgb(205, 47, 76);
+}
+
+.hobbyDroneArticle .title.titleColor a, .newsCategoryArticle .title.hobbyDronesColor a {
+    color: rgb(0, 55, 255);
+}
+
+.businessDroneArticle .title.titleColor a, .newsCategoryArticle .title.businessDronesColor a {
+    color: rgb(4, 143, 4);
+}
+
+.otherNewsArticle .title.titleColor a, .newsCategoryArticle .title.otherNewsColor a {
+    color: rgb(205, 47, 76);
+}
+
+.hobbyDroneArticle .summaryText.summaryTextColor a, .newsCategoryArticle .summaryText.hobbyDronesColor a {
+    color: rgb(0, 123, 255);
+}
+
+.businessDroneArticle .summaryText.summaryTextColor a, .newsCategoryArticle .summaryText.businessDronesColor a {
+    color: rgb(5, 173, 5);
+}
+
+.otherNewsArticle .summaryText .summaryTextColor a, .newsCategoryArticle .summaryText.otherNewsColor a { 
+    color: rgb(245, 6, 6);
+}
+
+.otherNewsContainer.marginReset {
+    margin-bottom: 0;
+}
+
+.categoryArticles.color {
+    background-color: lightgrey;
+}
+
+
+
+
+.editingAndDeletingFormContainer {
+    border: 1px solid blueviolet;
+    border-style: dashed;
+    width: 95%;
+    margin: 30px auto 30px auto;
+    background-color: rgb(112, 180, 228); 
+    height: 70vh;
+    /* height: 640px; */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.editingAndDeletingFormContainer form label {
+    color: white;
+    font-size: xx-large;
+}
+
+.editingAndDeletingFormContainer form select {
+    height: 40px;
+    font-size: larger;
+    color: rgb(43, 147, 226);
+}
+
+.editingAndDeletingFormContainer .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editingAndDeletingFormContainer form .editBtn {
+    background-color: rgb(18, 190, 27);
+    color: white;
+    font-size: medium;
+    margin-top: 5px;
+    width: 48%;
+    height: 30px;
+}
+
+.editingAndDeletingFormContainer form .deleteBtn {
+    background-color: rgb(255, 25, 0);
+    color: white;
+    font-size: medium;
+    margin-top: 5px;
+    width: 48%;
+    height: 30px;
+}
+
+
+
+
+
+.editFormContainer, .deleteFormContainer {
+    border: 1px solid olivedrab;
+    background-color: rgb(39, 215, 207) ;
+    margin: 15px auto 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    box-sizing: border-box;
+    font-size: 1.5em;
+}
+
+/* .editFormContainer.color {
+    background-color: rgb(39, 215, 207) ;
+} */
+
+.editFormContainer .editForm, .deleteFormContainer .deleteForm {
+    color: rgb(11, 125, 240);
+    font-size: large;
+}
+
+.editFormContainer .editForm input, .editFormContainer .editForm label{
+    font-size: larger;
+}
+
+.editFormContainer .editForm *:not([type="checkbox"]), 
+.deleteFormContainer .deleteForm *:not([type="checkbox"]) {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+.editFormContainer .editForm textarea, .titleLabel, .categoryLabel,
+.deleteFormContainer .deleteForm textarea, .titleLabel, .categoryLabel {
+    background-color: lightgrey; 
+    color:darkblue;
+}
+
+.editFormContainer .editForm .submitBtn.color {
+    background-color: rgb(18, 190, 27);
+}
+
+.deleteFormContainer .deleteForm .deleteBtn.color {
+    background-color: rgb(255, 25, 0);
+}
+
+.editFormContainer .editForm .submitBtn,
+.deleteFormContainer .deleteForm .deleteBtn {
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    border: 1px solid black;
+    color: white;
+    font-size: larger;
+}
+
+
+
+
+
+
+.wholeArticlePrintContainer {
+    margin: 70px auto 70px auto;
+    width: 90%;
+    border: 1px solid rgb(25, 24, 26);
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.wholeArticlePrintContainer .date {
+    float: left;
+}
+
+.wholeArticlePrintContainer .title {
+    font-size: x-large;
+    color: rgb(47, 43, 43);
+    text-align: center;
+}
+
+.wholeArticlePrintContainer .picture {
+    width: 100%;
+}
+
+.wholeArticlePrintContainer .picture img {
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    padding: 0;
+}
+
+.wholeArticlePrintContainer .text {
+    margin-bottom: 50px;
+    line-height: 1.7;
+}
+
+
+
+
+/* 5. faza */
+.centerVertically {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.registrationContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    flex-direction: column;
+}
+
+.registrationBackgroundColor {
+    background-color: rgb(112, 180, 228);
+}
+
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginBackgroundColor {
+    background-color: #add8e6;
+}
+
+
+.registrationContainer form, .loginFormContainer form {
+    background-color: #87CEEB;
+    padding:25px;
+    border-radius: 10px;
+}
+
+.loginFormContainer form .registerNowContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.registrationContainer form label, 
+    .registrationContainer form input, 
+    .registrationContainer form .lognBtn,
+    .loginFormContainer form label, 
+    .loginFormContainer form input,
+    .loginFormContainer form .loginBtn {
+        font-size: 1.2em;
+    }
+
+.loginFormContainer form .registerNowContainer .registerNowBtn {
+    color: rgb(0, 76, 255);
+    display: block;
+    text-align: center;
+}
+
+
+.registrationContainer form .loginBtn, .loginFormContainer form .loginBtn {
+    margin: 0 auto;
+    display: block;
+    padding: 5px;
+    width: 60%;
+}
+
+.registrationContainer form label, .registrationContainer form input, .loginFormContainer form label, .loginFormContainer form input {
+    display: block;
+    width: 100%;
+}
+
+.registrationContainer form .error, .loginFormContainer form .error {
+    color: red;
+}
+
+.registrationContainer form .error-border, .loginFormContainer form .error-border {
+    border: 2px dotted red;
+}
+
+
+.registrationContainer h2, .loginFormContainer h2 {
+    color: rgb(0, 76, 255);
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+/* .businessDroneContainer {
+    margin-top: 65px;
+    width: 100%;
+} */
+
+/* .businessDroneHeader {
+    width: 100%;
+    background-color: rgb(55, 187, 105);
+    padding-bottom: 20px;
+} */
+
+/* .businessDroneHeader h1 {
+    color: white;
+    font-size: xx-large;
+    padding: 10px 0 0 0;
+} */
+
+/* .businessDroneRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+}
+ */
+/* .businessDroneArticle {
+    width: 33.33%;
+} */
+
+/* .businessDroneArticle .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+} */
+
+/* .businessDroneArticle .image img {
+    width: 95%;
+    height: 300px;
+    object-fit: cover;
+} */
+
+/* .businessDroneArticle .image a {
+    text-align: center;
+    width: 95%;
+} */
+
+
+/* .businessDroneArticle .title {
+    margin: 10px 30px 0 30px; 
+    text-align: center;
+} */
+
+/* .businessDroneArticle .title a {
+    text-decoration: none;
+    color: rgb(5, 173, 5);
+} */
+
+/* .businessDroneArticle .summaryText {
+    margin: 10px 40px 0 40px; 
+    padding-bottom: 20px;
+    text-align: center;
+} */
+
+/* .businessDroneArticle .summaryText a {
+    text-decoration: none;
+    color: rgb(4, 143, 4);
+} */
+
+
+@media only screen and (max-width: 767px) {
+   /*mob */
+    .container {
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav li {
+        margin: 15px 0;
+    }
+
+    .newArticle {
+        margin:  20px auto 20px auto;
+        width: 70%;
+    }
+
+    .newArticleForm {
+        width: 95%;
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
+
+    .articlePrint {
+        width: 100%;
+    }
+
+    .pictureContainer img {
+        width: 450px;
+    }
+
+    .articles {
+        width: 100%;
+        margin-bottom: 30px;
+        box-sizing: border-box;
+    }
+
+    .hobbyDroneRow, .businessDroneRow, .otherNewsRow, .newsCategoryRow {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .hobbyDroneArticle, .businessDroneArticle, .otherNewsArticle, .newsCategoryArticle {
+        width: 100%;
+        border: none;
+        transition: none;
+        margin-left: 0;
+        /* margin-bottom: 50px; */
+    }
+
+    .hobbyDroneArticle:hover, .businessDroneArticle:hover, .otherNewsArticle:hover, .newsCategoryArticle:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .hobbyDroneArticle .image, .businessDroneArticle .image, .otherNewsArticle .image, .newsCategoryArticle .image {
+        display: block;
+    }
+
+    .hobbyDroneArticle .image img, .businessDroneArticle .image img, .otherNewsArticle .image img, .newsCategoryArticle .image img {
+        width: 100%;
+    }
+
+    /* .businessDroneRow {
+        flex-direction: column;
+    } */
+
+    /* .businessDroneArticle {
+        width: 100%;
+    } */
+
+    hr {
+        display: block;
+    }
+
+
+
+
+    .editingAndDeletingFormContainer {
+        width: 99%;
+    }
+
+    .editingAndDeletingFormContainer .buttonContainer {
+        display: block;
+    }
+
+    .editingAndDeletingFormContainer form {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+
+    .editingAndDeletingFormContainer form .editBtn, .editingAndDeletingFormContainer form .deleteBtn { 
+        width: 100%;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+
+
+
+
+
+
+    .editFormContainer, .deleteFormContainer {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .editFormContainer .editForm *:not([type="checkbox"]), 
+    .deleteFormContainer .deleteForm *:not([type="checkbox"]) {
+        width: 100%;
+    }
+
+
+
+
+    .wholeArticlePrintContainer {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .wholeArticlePrintContainer .title {
+        font-size:large;
+        text-align: center;
+    }
+
+    /*5.faza*/
+    .registrationContainer h2, .loginFormContainer h2 {
+        font-size: 2.6em;
+        margin-top: 0px;
+    }
+
+    .registrationContainer form, .loginFormContainer form {
+        padding: 30px;
+    }
+
+    .loginFormContainer form label, 
+    .loginFormContainer form input,
+    .loginFormContainer form .loginBtn,
+    .registrationContainer form label, 
+    .registrationContainer form input, 
+    .registrationContainer form .lognBtn {
+        font-size: 1.5em;
+    }
+
+
+
+    .loginFormContainer form .registerNowContainer {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* tablet */
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .newArticleForm {
+        width: 40%;
+        margin-bottom: 20px;
+    }
+
+    .articlePrint {
+        width: 90%;
+    }
+
+    .pictureContainer img {
+        width: 650px;
+    }
+
+    .articles {
+        width: 85%;
+        margin-bottom: 30px;
+    }
+
+    
+    .hobbyDroneRow, .businessDroneRow, .otherNewsRow, .newsCategoryRow {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .hobbyDroneArticle, .businessDroneArticle, .otherNewsArticle, .newsCategoryArticle {
+        width: 100%;
+        margin-bottom: 50px;
+        border: none;
+        transition: none;
+        margin-left: 0;
+    }
+
+    .hobbyDroneArticle:hover, .businessDroneArticle:hover, .otherNewsArticle:hover, .newsCategoryArticle:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .hobbyDroneArticle .image, .businessDroneArticle .image, .otherNewsArticle .image, .newsCategoryArticle .image {
+        display: block;
+    }
+
+    .hobbyDroneArticle .image img, .businessDroneArticle .image img, .otherNewsArticle .image img, .newsCategoryArticle .image img {
+        width: 100%;
+        height: 350px;
+    }
+
+
+    /* .businessDroneRow {
+        flex-direction: column;
+    } */
+
+    /* .businessDroneArticle {
+        width: 100%;
+        margin-bottom: 50px;
+    } */
+
+    /* .businessDroneArticle .image img {
+        height: 350px;
+    } */
+
+    hr {
+        display: block;
+    }
+
+
+    .editingAndDeletingFormContainer {
+        width: 90%;
+    }
+
+    .editingAndDeletingFormContainer .buttonContainer {
+        display: block;
+    }
+
+
+    .editingAndDeletingFormContainer form {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+
+
+    .editingAndDeletingFormContainer form .editBtn, .editingAndDeletingFormContainer form .deleteBtn {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+
+
+
+
+
+
+    .editFormContainer, .deleteFormContainer {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+
+
+
+
+    .wholeArticlePrintContainer {
+        width: 85%;
+    }
+
+    .wholeArticlePrintContainer .title {
+        font-size:large;
+    }
+
+
+    /*5.faza*/
+    .registrationContainer h2,.loginFormContainer h2 {
+        font-size: 2.2em;
+    }
+
+    .registrationContainer form, .loginFormContainer form {
+        padding: 35px;
+    }
+
+    .registrationContainer form label, 
+    .registrationContainer form input, 
+    .registrationContainer form .lognBtn,
+    .loginFormContainer form label, 
+    .loginFormContainer form input,
+    .loginFormContainer form .loginBtn {
+        font-size: 1.6em;
+    }
+
+    .loginFormContainer form .registerNowContainer {
+        flex-direction: column;
+        gap: 0px;
+    }
+    
+
+}
+
